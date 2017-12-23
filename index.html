@@ -1,61 +1,10 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>ToDoList</title>
-	<link rel="stylesheet" type="text/css" href="index.css">
-	<script src = "vue.js"></script>
-</head>
-<body>
-	<div class="page-top">
-		<div class="page-content">
-			<h2>任务计划列表</h2>
-		</div>
-	</div>
-	<div class="main">
-		<h3 class="big-title">添加任务：</h3>
-		<input 
-			type="text" 
-			placehoder="例如：吃饭睡觉打豆豆；提示：+回车即可添加任务" 
-			class="task-input"
-			v-model="todo" //根据表单控件的不同去监控不同的value值 
-			v-on:keyup.enter="addTodo"
-		/>
-		<ul class="task-content" v-show="list.length">
-			<li>
-				{{noCheckedItem}}个任务未完成
-			</li>
-			<li class="action">
-				<a class="active" href="#all">所有任务</a>
-				<a href="#unfinished">未完成的任务</a>
-				<a href="#finished">完成的任务</a>
-			</li>
-		</ul>
-		<h3 class="big-title">任务列表：</h3>
-		<div class="tasks">
-		<span class="no-task-tip" v-show="!list.length">还没有添加任何任务</span>
-		<ul class="todo-list">
-			<li class="todo" v-bind:class="{completed: item.isChecked,editing:item === edtorTodos}" v-for="item in filteredList"><!-- 渲染列表 --><!-- 由item in list改为filteredList -->
-				<div class="view">
-					<input type="checkbox" class="toggle" v-model="item.isChecked">
-					<label @dblclick = "edtorTodo(item)">{{item.title}}</label>
-					<button class="destroy" @click="deleteTodo(item)"></button>
-				</div>
-				<input
-					v-foucs="item === edtorTodos"
-					type="text" 
-					class="edit" 
-					v-model="item.title"
-					@blur="edtorTodoed(item)"
-					@keyup.enter = "edtorTodoed(item)"
-					@keyup.esc = "cancelTodo(item)"
-				/>
-			</li>
-		</ul>
-		</div>
-	</div>
-
-	<script src="app.js"></script>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>会员管理系统</title>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
 </html>
