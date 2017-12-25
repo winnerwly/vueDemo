@@ -6,6 +6,7 @@ Vue.use(Vuex)
 const state = {
 	count: 1,
 	index: '我想着仅仅是vuex传来的一段文字',
+	locale: 'CN'
 }
 
 const mutations = {
@@ -18,13 +19,21 @@ const mutations = {
 	},
 	mutationName(state) {
 		state.count = state.count*10
-  	}
+	},
+	language(state) {
+		console.log(state.locale)
+		if (state.locale === 'CN') {
+			state.locale = 'EN'
+		}else{
+			state.locale = 'CN'
+		}
+	}
 }
 
 const actions = {
 	increment (context) {
       context.commit('mutationName')
-    }
+	}
 }
 
 const getters = {

@@ -22,6 +22,8 @@
 				</tr>
 			</tbody>
 		</table>
+		<h1>{{ $t("demo.language") }}</h1>
+		<h1>{{ $t("demo.hello") }}</h1>
 	</div>
 </template>
 <script>
@@ -43,6 +45,9 @@ export default {
 			{name:'user5',age:12,id:5}
 			]
 		}
+	},
+	created(){
+		// console.log('this', this)
 	},
 	mounted(){
 		$('button').hover(
