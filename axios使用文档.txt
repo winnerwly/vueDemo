@@ -1,4 +1,4 @@
-{
+﻿{
   //`url`是请求的服务器地址
   url:'/user',
   //`method`是请求资源的方式
@@ -23,7 +23,7 @@
   //`params`选项是要随请求一起发送的请求参数----一般链接在URL后面
   //他的类型必须是一个纯对象或者是URLSearchParams对象
   params: {
-    ID:12345
+    ID:12345 
   },
   //`paramsSerializer`是一个可选的函数，起作用是让参数（params）序列化
   //例如(https://www.npmjs.com/package/qs,http://api.jquery.com/jquery.param)
