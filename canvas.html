@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://www.lovebxm.com/canvas-special/globule/index.html -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Canvas_鼠标移动炫彩小球</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            border:0;
+        }
+        ol, ul ,li{list-style: none;}
+        canvas{
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mycanvas" width="2000" height="2000"></canvas>
+    <script type="text/javascript">
+        var mycanvas = document.getElementById("mycanvas");
+        var ctx = mycanvas.getContext("2d");
+
+        // 定义小球的类
+        function Ball(x,y,r,color) {
+            this.x=x;
+            this.y=y;
+            this.r=r;
+            // 定义一个随机的颜色
+            this.color="rgba(255,255,255,0.3)";
+
+            // 随机的方向
+            this.dx = (Math.random()*10-5)/5
+            this.dy = (Math.random()*10-5)/5
+
+            circleArr.push(this)
+        }
+         //圆形类
+        // 渲染
+        Ball.prototype.render = function(){
+            //新建一条路径
+            ctx.beginPath();
+            //创建一个圆
+            ctx.arc(this.x, this.y, this.r, 0, Math.PI*2, true);
+            //设置样式颜色
+            ctx.fillStyle = this.color;
+            //通过填充路径的内容区域生成实心的图形
+            ctx.fill();
+         }
+         //鼠标移动事件
+        mycanvas.onmousemove = function(event){
+        new Ball(event.clientX,event.clientY,30,"orange");
+        }
+
+        // 跟新
+        Ball.prototype.update = function(){
+            this.x += this.dx;
+            this.y += this.dy;
+            this.r-=0.1;
+            if(this.x<this.r){
+                this.dx=-this.dx
+            }else if(this.x>document.body.offsetWidth-this.r){
+                this.dx=-this.dx
+            }
+            if(this.y<this.r){
+                this.dy=-this.dy
+            }else if(this.y>document.body.offsetHeight-this.r){
+                this.dy=-this.dy
+            }
+            if(this.r < 0){
+                for (var i = 0; i < circleArr.length; i++) {
+                    if (circleArr[i] === this) {
+                        circleArr.splice(i,1);
+                    };
+                }
+                return false;
+            }
+            return true;
+         }
+
+        var circleArr = [];
+
+        function bgco(box){
+            var index = 90
+            var ra = 220
+            var rb = 0
+            var ia = 1
+            var ib = 1
+
+            box.style.background='linear-gradient('+index+'deg,#FFEB3B, #F00)'
+            function showRgb(r,g,b){
+                return "rgb("+r+","+g+","+b+")";
+            }
+            setInterval(() => {
+                ctx.clearRect(0,0,2000,2000)
+                for(var i=0;i<circleArr.length;i++){
+                    circleArr[i].update() && circleArr[i].render()
+                }
+                index+=1
+                ra+=ia
+                rb+=ib
+                if (ra>220) {
+                    ia=(-ia)
+                }
+                if (ra<0) {
+                    ia=(-ia)
+                }
+                if (rb>220) {
+                    ib=(-ib)
+                }
+                if (rb<0) {
+                    ib=(-ib)
+                }
+                if (true) {}
+                box.style.background='linear-gradient('+index+'deg,'+showRgb(ra,0,rb)+', '+showRgb(ra,220,rb)+')'
+                var x=Math.random()*500+200
+                var y=Math.random()*300+200
+                new Ball(x,y,30,'orange');
+            }, 50)
+        }
+        window.onload=function(){
+            var box = document.body
+            bgco(box)
+            for (var a =0; a<20;a++){
+                var x=Math.random()*1000+200
+                var y=Math.random()*500+200
+                new Ball(x,y,30,'orange');
+            }
+        }
+
+    </script>
+    <div id="cli_dialog_div"></div>
+</body>
+</html>
