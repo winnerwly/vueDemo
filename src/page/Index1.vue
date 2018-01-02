@@ -13,6 +13,11 @@
 			<span class='page-header'>{{ $t('demo.language')}}</span>
 			<span class='page-header'>{{ $t('demo.hello')}}</span>
 			<span class='page-header'>{{locale}}</span>
+			<div ref='aaa'>12321312</div>
+			<button @click='aaaa'>按钮aaa</button>
+			<hr/>
+			<demoa @change='changeaa'></demoa>
+			<demob></demob>
 		</div>
 	</div>
 </template>
@@ -23,10 +28,12 @@ import Headers from '../components/Header'
 import Footers from '../components/Footer'
 import store from '@/store'
 import { mapState,mapMutations,mapActions } from 'vuex';
+import demoa from '../components/demo1'
+import demob from '../components/demo2'
 
 export default {
 	name: 'Index',
-	components:{ Demo, Headers, Footers, },
+	components:{ Demo, Headers, Footers, demoa, demob },
 	data(){
 		return {
 			msg:'嘻嘻',
@@ -42,6 +49,12 @@ export default {
 		locale: state => state.locale
 	}),
 	methods: {
+		changeaa(v){
+			alert(v)
+		},
+		aaaa(){
+			console.log(this.$refs)
+		},
 		...mapMutations([
 	    	'add',
 	    	'reduce',
