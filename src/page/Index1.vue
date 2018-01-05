@@ -38,7 +38,7 @@ export default {
 		return {
 			msg:'嘻嘻',
 			list: []
-		}
+		} 
 	},
 	store,
 	created(){
