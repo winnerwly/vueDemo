@@ -12,12 +12,14 @@
 					<input v-model='pwd' type="password" class="form-control" id="pwd" placeholder="请输入密码">
 				</div>
 				<button type="button" class="btn btn-success btn-block" @click='login'>登陆</button>
+				<p class="page-header">{{msg.city}} {{msg.weather}} {{msg.week}} {{msg.winddirect}} {{msg.windpower}} {{msg.windspeed}} </p>
 			</div>
 		</div>
 	</div>
 </template>
 <script>
 import { login } from '@/services/login'
+import { demms } from '@/services/demm'
 export default {
 	name: 'login',
 	data(){
@@ -27,10 +29,27 @@ export default {
 			pwd:''
 		}
 	},
+	async created () {
+		const data = await demms({
+			// platform: 'yqq',
+			// hostUin: 0,
+			// sin: 0,
+			// ein: 29,
+			// sortId: 5,
+			// needNewCode: 0,
+			// categoryId: 10000000,
+			// rnd: Math.random(),
+			// format: 'json',
+			city:'安徽',
+			cityid: 111,
+			citycode: 101260301,
+			appkey: '4ec4a121d6341bdf62b6f2db4f8858be'
+		})
+		console.log('data', data)
+		this.msg = data.result.result
+	},
 	methods:{
 		async login(){
-			console.log('username', this.username)
-			console.log('pwd', this.pwd)
 			const data = await login({
 				username: this.username,
 				pwd: this.pwd,

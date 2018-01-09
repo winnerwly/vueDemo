@@ -15,3 +15,7 @@ export const demo = {
 export const index = {
 	query: url + 'getIndexInfo.php'
 }
+
+export const demm = {
+	query: '/api/demo'
+}
