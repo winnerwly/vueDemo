@@ -19,3 +19,7 @@ export const index = {
 export const demm = {
 	query: '/api/demo'
 }
+
+export const jsonp = {
+	query: 'http://1x8i140303.iask.in/weixin/getCode.do?callback=jsonp1'
+}
