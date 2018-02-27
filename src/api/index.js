@@ -21,5 +21,6 @@ export const demm = {
 }
 
 export const jsonp = {
-	query: 'http://1x8i140303.iask.in/weixin/getCode.do?callback=jsonp1'
+	// query: 'http://1x8i140303.iask.in/weixin/getCode.do?callback=jsonp1'
+	query: 'http://ajax.winnerwly.top/Ajax/Index/index'
 }

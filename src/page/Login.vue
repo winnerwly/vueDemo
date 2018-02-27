@@ -20,6 +20,7 @@
 <script>
 import { login } from '@/services/login'
 import { demms } from '@/services/demm'
+import { query } from '@/services/jsonp'
 export default {
 	name: 'login',
 	data(){
@@ -47,6 +48,8 @@ export default {
 		})
 		console.log('data', data)
 		this.msg = data.result.result
+		const daaaa = await query()
+		console.log('daaaa', daaaa)
 	},
 	methods:{
 		async login(){
