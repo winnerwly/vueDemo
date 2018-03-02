@@ -5,6 +5,7 @@ import Demo from '@/components/Demo'
 import Index from '@/page/Index'
 import Index1 from '@/page/Index1'
 import Login from '@/page/Login'
+// import Demo1 from '@/page/emo1'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
     	path: '/HelloWorld',
     	name: 'HelloWorld',
       component: Index1
+    },
+    {
+      path: '/demo1',
+      name: 'demo1',
+      component: r => require.ensure([], () => r(require('@/page/demo1')), 'demo1')
     },
     {
       path: '/',

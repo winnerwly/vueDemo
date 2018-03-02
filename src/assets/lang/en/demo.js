@@ -1,4 +1,4 @@
 export const demo = {
-    text: 'language',
-    hello: 'hello world'
+    'text': 'language11',
+    'hello': 'hello world'
 }

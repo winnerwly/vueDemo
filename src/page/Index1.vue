@@ -10,8 +10,8 @@
 			<button @click='increment()'>按钮二号</button>
 			<hr/>
 			<button class='btn btn-info' @click='language()'>切换语言</button>
-			<span class='page-header'>{{ $t('demo.language')}}</span>
-			<span class='page-header'>{{ $t('demo.hello')}}</span>
+			<span class='page-header'>{{ $t('language')}}</span>
+			<span class='page-header'>{{ $t('hello')}}</span>
 			<span class='page-header'>{{locale}}</span>
 			<div ref='aaa'>12321312</div>
 			<button @click='aaaa'>按钮aaa</button>
