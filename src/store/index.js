@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import demo1 from './modules/demo1'
 
 Vue.use(Vuex)
 
@@ -41,6 +42,9 @@ const getters = {
 }
 
 export default new Vuex.Store({
+	modules:{
+		demo1
+	},
 	state,
 	mutations,
 	getters,
